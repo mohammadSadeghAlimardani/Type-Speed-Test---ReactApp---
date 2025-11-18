@@ -13,7 +13,7 @@ const inputTextSlice = createSlice({
             state.isTypeStarted = action.payload;
         },
         setInputText: (state, action) => {
-            state.inputText = action.payload;
+            state.inputText = action.payload.toLowerCase();
         },
     },
 });
