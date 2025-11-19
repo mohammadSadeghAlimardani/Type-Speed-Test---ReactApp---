@@ -9,6 +9,7 @@ import InputText from "./components/InputText";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
 import Modal from "./components/Modal";
+import { toast, ToastContainer } from "react-toastify";
 
 const App = () => {
     const { isLoading, isError } = useSelector((state) => state.statesOfText);
@@ -18,6 +19,12 @@ const App = () => {
     useEffect(() => {
         dispatch(fetchText());
     }, []);
+
+    useEffect(() => {
+        if (!isLoading && !isError) {
+            toast.info("if you use phone, please deactivate Auto captilize");
+        }
+    }, [isLoading, isError]);
 
     if (isLoading) {
         return <Loading />;
@@ -29,6 +36,11 @@ const App = () => {
 
     return (
         <main>
+            <ToastContainer
+                position="top-center"
+                style={{ lineHeight: "1.4" }}
+                autoClose={8000}
+            />
             <Modal />
             <div className="section-center app-center">
                 <Title />
