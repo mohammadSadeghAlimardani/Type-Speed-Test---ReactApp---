@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const fetchTextURL = "https://api.npoint.io/3ac538c9d36d074dca3c";
+const fetchTextURL = "https://api.npoint.io/8270d785c93e8559cd99";
 
 export const fetchText = createAsyncThunk("text/fetchText", async () => {
     try {
